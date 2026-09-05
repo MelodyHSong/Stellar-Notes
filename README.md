@@ -4,6 +4,9 @@
 
 Welcome to **StellarNotes**! A sleek, cosmic desktop note-taking and voice-narration workstation designed for effortless writing, instant galactic search, note prioritization, and offline voice read-aloud—complete with seamless Windows Explorer context menu integration.
 
+<img width="1516" height="911" alt="image" src="https://github.com/user-attachments/assets/6b3f98ab-5698-4dbd-a46a-1cefc717033c" />
+
+
 ---
 
 ## ☆ Features
