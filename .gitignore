@@ -35,4 +35,5 @@ ehthumbs.db
 # Ignore user-created notes and runtime metadata, but keep the starter welcome note
 notes/*
 !notes/Welcome_to_StellarNotes.md
+!notes/Welcome_to_StellarNotes.txt
 notes/.stellar_metadata.json
