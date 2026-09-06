@@ -4,7 +4,7 @@
 # ☆ File Name: setup_context_menu.py
 # ☆ Date: September 3, 2026
 # ☆
-# ☆ Description: Windows context menu installer and uninstaller for StellarNotes.
+# ☆ Description: Windows context menu installer and uninstaller for Stellar-Notes.
 # ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
 import sys
@@ -28,8 +28,8 @@ SCRIPT_PATH = os.path.join(BASE_DIR, "stellar_notes.py")
 ASSET_ICON = os.path.join(BASE_DIR, "assets", "stellar_notes.ico")
 SPEC_PATH = os.path.join(BASE_DIR, "stellar_notes.spec")
 
-MENU_VERB = "StellarNotes"
-MENU_LABEL = "⭐ Open with StellarNotes"
+MENU_VERB = "Stellar-Notes"
+MENU_LABEL = "⭐ Open with Stellar-Notes"
 TARGET_EXTENSIONS = [".md", ".markdown", ".txt", ".note"]
 
 def get_pythonw_path():
@@ -75,7 +75,7 @@ def delete_key_recursive(root_hkey, subkey_path):
 
 def check_status():
     """Inspect current registry keys and display the installation status."""
-    print("\n🔍 Checking StellarNotes Registry Status...")
+    print("\n🔍 Checking Stellar-Notes Registry Status...")
     found_any = False
 
     for ext in TARGET_EXTENSIONS:
@@ -90,7 +90,15 @@ def check_status():
                 print(f"      Command: {cmd_val}")
                 found_any = True
         except FileNotFoundError:
-            print(f"  [ ] {ext:<10} -> Not registered")
+            # Check legacy verb if present
+            legacy_path = f"Software\\Classes\\SystemFileAssociations\\{ext}\\shell\\StellarNotes"
+            try:
+                with winreg.OpenKey(winreg.HKEY_CURRENT_USER, legacy_path, 0, winreg.KEY_READ) as k:
+                    val, _ = winreg.QueryValueEx(k, "")
+                    print(f"  [!] {ext:<10} -> Registered under legacy verb ({val})")
+                    found_any = True
+            except FileNotFoundError:
+                print(f"  [ ] {ext:<10} -> Not registered")
         except Exception as e:
             print(f"  [!] {ext:<10} -> Error: {e}")
 
@@ -105,9 +113,9 @@ def check_status():
         print(f"  [ ] Open-With App Entry: Not registered")
 
     if found_any:
-        print("\n✨ StellarNotes context menu integration is currently ACTIVE.")
+        print("\n✨ Stellar-Notes context menu integration is currently ACTIVE.")
     else:
-        print("\n💤 StellarNotes context menu integration is currently NOT INSTALLED.")
+        print("\n💤 Stellar-Notes context menu integration is currently NOT INSTALLED.")
     return found_any
 
 def install(mode="auto"):
@@ -115,7 +123,7 @@ def install(mode="auto"):
     Install right-click context menu into HKCU\\Software\\Classes.
     mode: 'auto' | 'exe' | 'python'
     """
-    print("\n🚀 Initializing StellarNotes Context Menu Installation...")
+    print("\n🚀 Initializing Stellar-Notes Context Menu Installation...")
 
     target_command = ""
     icon_target = ""
@@ -184,8 +192,8 @@ def install(mode="auto"):
     try:
         app_base = "Software\\Classes\\Applications\\stellar_notes.exe"
         with winreg.CreateKey(winreg.HKEY_CURRENT_USER, app_base) as ak:
-            winreg.SetValueEx(ak, "", 0, winreg.REG_SZ, "StellarNotes")
-            winreg.SetValueEx(ak, "FriendlyAppName", 0, winreg.REG_SZ, "StellarNotes")
+            winreg.SetValueEx(ak, "", 0, winreg.REG_SZ, "Stellar-Notes")
+            winreg.SetValueEx(ak, "FriendlyAppName", 0, winreg.REG_SZ, "Stellar-Notes")
 
         supported_types = f"{app_base}\\SupportedTypes"
         with winreg.CreateKey(winreg.HKEY_CURRENT_USER, supported_types) as stk:
@@ -209,18 +217,20 @@ def install(mode="auto"):
 
 def uninstall():
     """Remove all registered context menu keys from the registry."""
-    print("\n🧹 Initializing StellarNotes Context Menu Removal...")
+    print("\n🧹 Initializing Stellar-Notes Context Menu Removal...")
     removed_count = 0
 
+    verbs_to_clean = [MENU_VERB, "StellarNotes"]
     for ext in TARGET_EXTENSIONS:
-        # SystemFileAssociations
-        sys_key_path = f"Software\\Classes\\SystemFileAssociations\\{ext}\\shell\\{MENU_VERB}"
-        if delete_key_recursive(winreg.HKEY_CURRENT_USER, sys_key_path):
-            removed_count += 1
+        for verb in verbs_to_clean:
+            # SystemFileAssociations
+            sys_key_path = f"Software\\Classes\\SystemFileAssociations\\{ext}\\shell\\{verb}"
+            if delete_key_recursive(winreg.HKEY_CURRENT_USER, sys_key_path):
+                removed_count += 1
 
-        # Classes\{ext}\shell
-        ext_key_path = f"Software\\Classes\\{ext}\\shell\\{MENU_VERB}"
-        delete_key_recursive(winreg.HKEY_CURRENT_USER, ext_key_path)
+            # Classes\{ext}\shell
+            ext_key_path = f"Software\\Classes\\{ext}\\shell\\{verb}"
+            delete_key_recursive(winreg.HKEY_CURRENT_USER, ext_key_path)
 
     # Applications subkey
     app_base = "Software\\Classes\\Applications\\stellar_notes.exe"
@@ -233,7 +243,7 @@ def uninstall():
 
 def build_executable():
     """Build or rebuild standalone executable with PyInstaller."""
-    print("\n🛸 Launching PyInstaller build sequence for StellarNotes...")
+    print("\n🛸 Launching PyInstaller build sequence for Stellar-Notes...")
     cmd = [sys.executable, "-m", "PyInstaller", "--noconfirm", SPEC_PATH]
     try:
         res = subprocess.run(cmd, cwd=BASE_DIR)
@@ -251,7 +261,7 @@ def interactive_menu():
     """Terminal UI for interactive setup."""
     while True:
         print("\n" + "=" * 60)
-        print("      ⭐ STELLAR NOTES — CONTEXT MENU SETUP 🛸      ")
+        print("      ⭐ STELLAR-NOTES — CONTEXT MENU SETUP 🛸      ")
         print("=" * 60)
         print("  [1] Install Context Menu (Standalone Executable Mode)")
         print("  [2] Install Context Menu (Python Script / Dev Mode)")
@@ -280,7 +290,7 @@ def interactive_menu():
             print("[!] Invalid option. Please enter a number between 1 and 6.")
 
 def main():
-    parser = argparse.ArgumentParser(description="StellarNotes Context Menu Setup")
+    parser = argparse.ArgumentParser(description="Stellar-Notes Context Menu Setup")
     parser.add_argument("--install", action="store_true", help="Install context menu")
     parser.add_argument("--uninstall", action="store_true", help="Uninstall context menu")
     parser.add_argument("--status", action="store_true", help="Check current registration status")

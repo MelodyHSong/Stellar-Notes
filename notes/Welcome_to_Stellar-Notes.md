@@ -1,8 +1,8 @@
-# ☆ Welcome to StellarNotes! ☆
+# ☆ Welcome to Stellar-Notes! ☆
 
 > "Transmitting ideas across the cosmos, one thought at a time."
 
-Welcome aboard **StellarNotes**, your personal cosmic note-taking and voice-narration workstation.
+Welcome aboard **Stellar-Notes**, your personal cosmic note-taking and voice-narration workstation.
 
 ---
 
@@ -12,7 +12,7 @@ Welcome aboard **StellarNotes**, your personal cosmic note-taking and voice-narr
 - ☆ **Instant Galactic Search**: Type into the top search bar to filter notes in real-time.
 - ☆ **Cosmic Audio ("Talking Notes")**: Click **Read Aloud** or press `Ctrl + Space` to let the onboard ship computer narrate your notes aloud!
 - ☆ **Automatic Shell Sync**: Every keystroke is saved smoothly, with manual `Ctrl + S` instantly committing to disk.
-- ☆ **Windows Context Menu Integration**: Right-click any text or Markdown file in Windows Explorer and open it straight in StellarNotes.
+- ☆ **Windows Context Menu Integration**: Right-click any text or Markdown file in Windows Explorer and open it straight in Stellar-Notes.
 
 ---
 
@@ -29,4 +29,4 @@ Welcome aboard **StellarNotes**, your personal cosmic note-taking and voice-narr
 
 ---
 
-*Safe travels across the stars— MelodyHSong (Cassiopeia Studios)*
+*Safe travels across the stars— MelodyHSong*

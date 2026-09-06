@@ -2,7 +2,7 @@
 # ☆ Author: ☆ MelodyHSong ☆
 # ☆ Language: Python
 # ☆ File Name: generate_icon.py
-# ☆ Description: Generates multi-resolution .ico asset for StellarNotes
+# ☆ Description: Generates multi-resolution .ico asset for Stellar-Notes
 # ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
 import os
@@ -116,7 +116,7 @@ def create_stellar_icon(output_path):
         sizes=[(img.width, img.height) for img in images],
         append_images=images[1:]
     )
-    print(f"✨ StellarNotes icon created successfully: {output_path}")
+    print(f"✨ Stellar-Notes icon created successfully: {output_path}")
 
 if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.abspath(__file__))

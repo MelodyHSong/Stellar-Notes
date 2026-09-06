@@ -1,10 +1,10 @@
 @echo off
-title StellarNotes - PyInstaller Executable Builder
+title Stellar-Notes - PyInstaller Executable Builder
 color 0E
 chcp 65001 >nul 2>&1
 
 echo ================================================================
-echo    [+] STELLAR NOTES - BUILD STANDALONE EXECUTABLE
+echo    [+] STELLAR-NOTES - BUILD STANDALONE EXECUTABLE
 echo ================================================================
 echo.
 

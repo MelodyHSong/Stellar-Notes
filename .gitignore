@@ -1,5 +1,5 @@
 # ==========================================
-# ⭐ StellarNotes — Git Ignore Configuration
+# ⭐ Stellar-Notes — Git Ignore Configuration
 # ==========================================
 
 # Python Bytecode & Cache
@@ -34,6 +34,11 @@ ehthumbs.db
 # User Notes Data & Runtime State
 # Ignore user-created notes and runtime metadata, but keep the starter welcome note
 notes/*
-!notes/Welcome_to_StellarNotes.md
-!notes/Welcome_to_StellarNotes.txt
+!notes/Welcome_to_Stellar-Notes.md
+!notes/Welcome_to_Stellar-Notes.txt
 notes/.stellar_metadata.json
+
+# Working Release Notes & Drafts
+/misc/
+misc/release_notes.md
+

@@ -1,8 +1,8 @@
-# ☆ Contributing to StellarNotes ☆
+# ☆ Contributing to Stellar-Notes ☆
 
 > "Transmitting ideas across the cosmos, one thought at a time."
 
-Thank you for your interest in contributing to **StellarNotes**! Whether you are fixing bugs, improving documentation, or proposing new cosmic features, all transmissions are welcome.
+Thank you for your interest in contributing to **Stellar-Notes**! Whether you are fixing bugs, improving documentation, or proposing new cosmic features, all transmissions are welcome.
 
 ---
 
@@ -16,8 +16,8 @@ Thank you for your interest in contributing to **StellarNotes**! Whether you are
 ### Getting Started
 1. **Fork and clone** the repository:
    ```bash
-   git clone https://github.com/MelodyHSong/StellarNotes.git
-   cd StellarNotes
+   git clone https://github.com/MelodyHSong/Stellar-Notes.git
+   cd Stellar-Notes
    ```
 
 2. **Install dependencies**:
@@ -35,7 +35,7 @@ Thank you for your interest in contributing to **StellarNotes**! Whether you are
 
 ## ☆ Testing Context Menu Integration
 
-StellarNotes registers a custom context menu verb in Windows Explorer under `HKCU`:
+Stellar-Notes registers a custom context menu verb in Windows Explorer under `HKCU`:
 
 - **Install test registry keys (Python script mode)**:
   ```bash

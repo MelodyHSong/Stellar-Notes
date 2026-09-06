@@ -1,4 +1,4 @@
-# ⭐ StellarNotes — Python Dependencies
+# ⭐ Stellar-Notes — Python Dependencies
 # Built-in modules used: tkinter, os, sys, json, subprocess, ctypes, winreg (no extra install needed)
 # Windows Speech Synthesis API (SAPI) is integrated natively via PowerShell/WScript without extra dependencies.
 

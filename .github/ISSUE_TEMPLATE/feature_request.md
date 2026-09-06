@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or cosmic enhancement for StellarNotes
+about: Suggest an idea or cosmic enhancement for Stellar-Notes
 title: '[FEAT] '
 labels: ['enhancement']
 assignees: ''

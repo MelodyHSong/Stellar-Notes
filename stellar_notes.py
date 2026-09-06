@@ -4,7 +4,7 @@
 # ☆ File Name: stellar_notes.py
 # ☆ Date: September 3, 2026
 # ☆
-# ☆ Description: StellarNotes - A sleek cosmic desktop note-taking and voice-narration workstation with Windows Explorer integration.
+# ☆ Description: Stellar-Notes - A sleek cosmic desktop note-taking and voice-narration workstation with Windows Explorer integration.
 # ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
 import sys
@@ -58,7 +58,7 @@ FONT_STATS = ("Consolas", 9)
 class StellarNotesApp:
     def __init__(self, root, initial_file=None):
         self.root = root
-        self.root.title("⭐ StellarNotes - [Galactic Transmission Console]")
+        self.root.title("⭐ Stellar-Notes - [Galactic Transmission Console]")
         self.root.geometry("1120x680")
         self.root.minsize(820, 520)
         self.root.configure(bg=BG_DARK)
@@ -577,7 +577,7 @@ class StellarNotesApp:
 
             # Update window title and status
             note_name = os.path.basename(path)
-            self.root.title(f"⭐ StellarNotes - [{note_name}]")
+            self.root.title(f"⭐ Stellar-Notes - [{note_name}]")
             self.update_stats()
             self.status_save.config(text="● Synchronized to Base", fg=ACCENT_MINT)
             self.render_catalog_cards()

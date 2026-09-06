@@ -1,10 +1,10 @@
 @echo off
-title StellarNotes - Context Menu Uninstaller
+title Stellar-Notes - Context Menu Uninstaller
 color 0C
 chcp 65001 >nul 2>&1
 
 echo ================================================================
-echo    [-] STELLAR NOTES - CONTEXT MENU UNINSTALLER
+echo    [-] STELLAR-NOTES - CONTEXT MENU UNINSTALLER
 echo ================================================================
 echo.
 

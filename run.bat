@@ -1,5 +1,5 @@
 @echo off
-title StellarNotes - Launcher
+title Stellar-Notes - Launcher
 color 0B
 chcp 65001 >nul 2>&1
 

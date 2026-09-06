@@ -1,10 +1,10 @@
 @echo off
-title StellarNotes - Context Menu Installer
+title Stellar-Notes - Context Menu Installer
 color 0E
 chcp 65001 >nul 2>&1
 
 echo ================================================================
-echo    [+] STELLAR NOTES - CONTEXT MENU INSTALLER
+echo    [+] STELLAR-NOTES - CONTEXT MENU INSTALLER
 echo ================================================================
 echo.
 

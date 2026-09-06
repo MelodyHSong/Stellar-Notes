@@ -1,8 +1,8 @@
-☆ Welcome to StellarNotes! ☆
+☆ Welcome to Stellar-Notes! ☆
 
 > "Transmitting ideas across the cosmos, one thought at a time."
 
-Welcome aboard StellarNotes, your personal cosmic note-taking and voice-narration workstation.
+Welcome aboard Stellar-Notes, your personal cosmic note-taking and voice-narration workstation.
 
 --------------------------------------------------------------------------------
 ☆ KEY FEATURES
@@ -24,7 +24,7 @@ Welcome aboard StellarNotes, your personal cosmic note-taking and voice-narratio
 
 - ☆ Windows Context Menu Integration:
   Right-click any text or Markdown file in Windows Explorer and open it straight
-  in StellarNotes.
+  in Stellar-Notes.
 
 --------------------------------------------------------------------------------
 ☆ HOTKEYS & SHORTCUTS
@@ -41,4 +41,4 @@ Welcome aboard StellarNotes, your personal cosmic note-taking and voice-narratio
 
 --------------------------------------------------------------------------------
 
-Safe travels across the stars— MelodyHSong (Cassiopeia Studios)
+Safe travels across the stars— MelodyHSong

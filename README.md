@@ -1,8 +1,8 @@
-# ☆ StellarNotes ☆
+# ☆ Stellar-Notes ☆
 
 > "Transmitting ideas across the cosmos, one thought at a time."
 
-Welcome to **StellarNotes**! A sleek, cosmic desktop note-taking and voice-narration workstation designed for effortless writing, instant galactic search, note prioritization, and offline voice read-aloud—complete with seamless Windows Explorer context menu integration.
+Welcome to **Stellar-Notes**! A sleek, cosmic desktop note-taking and voice-narration workstation designed for effortless writing, instant galactic search, note prioritization, and offline voice read-aloud—complete with seamless Windows Explorer context menu integration.
 
 <img width="1516" height="911" alt="image" src="https://github.com/user-attachments/assets/6b3f98ab-5698-4dbd-a46a-1cefc717033c" />
 
@@ -34,7 +34,7 @@ Simply double-click:
 ```cmd
 install.bat
 ```
-This automatically registers the `Open with StellarNotes` verb in your Windows context menu for all supported note and markdown files.
+This automatically registers the `Open with Stellar-Notes` verb in your Windows context menu for all supported note and markdown files.
 
 ### Python Terminal CLI
 You can also manage the context menu directly from your terminal:
@@ -60,7 +60,7 @@ python setup_context_menu.py
 ```
 ```text
 ============================================================
-      ☆ STELLAR NOTES — CONTEXT MENU SETUP ☆
+      ☆ STELLAR-NOTES — CONTEXT MENU SETUP ☆
 ============================================================
   [1] Install Context Menu (Standalone Executable Mode)
   [2] Install Context Menu (Python Script / Dev Mode)
@@ -84,7 +84,7 @@ python -m pip install -r requirements.txt
 
 ### Right-Click Context Menu (Explorer)
 1. In Windows Explorer, right-click any `.md`, `.markdown`, or `.txt` file.
-2. Select **Open with StellarNotes**.
+2. Select **Open with Stellar-Notes**.
    > **Note for Windows 11**: If using the compact modern Windows 11 menu, choose **"Show more options"** (or press `Shift + Right Click`) to access the classic context menu verb, or select it from the **"Open with"** list.
 
 ### Keyboard Shortcuts
@@ -102,7 +102,7 @@ python -m pip install -r requirements.txt
 
 ## ☆ Quick Launch & Standalone Building
 
-- **Launch StellarNotes**: Double-click `run.bat` (automatically launches the compiled `.exe` or starts windowless via `pythonw`).
+- **Launch Stellar-Notes**: Double-click `run.bat` (automatically launches the compiled `.exe` or starts windowless via `pythonw`).
 - **Build Standalone Executable**: Double-click `build.bat` to compile `dist\stellar_notes.exe` using PyInstaller.
 
 ---

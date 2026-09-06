@@ -50,6 +50,6 @@ build = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/MelodyHSong/StellarNotes"
-Repository = "https://github.com/MelodyHSong/StellarNotes"
-Issues = "https://github.com/MelodyHSong/StellarNotes/issues"
+Homepage = "https://github.com/MelodyHSong/Stellar-Notes"
+Repository = "https://github.com/MelodyHSong/Stellar-Notes"
+Issues = "https://github.com/MelodyHSong/Stellar-Notes/issues"
