@@ -8,6 +8,24 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version tag (e.g. v1.0.1 or 1.0.1). Leave empty to only build without releasing.'
+        required: false
+        default: ''
+        type: string
+      draft:
+        description: 'Create as a draft release'
+        required: false
+        default: false
+        type: boolean
+      prerelease:
+        description: 'Create as a pre-release'
+        required: false
+        default: false
+        type: boolean
+  release:
+    types: [ published ]
 
 permissions:
   contents: write
@@ -55,10 +73,45 @@ jobs:
           path: dist/stellar_notes.exe
           if-no-files-found: error
 
+      - name: Determine Release Metadata
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.version != '')
+        id: meta
+        shell: pwsh
+        run: |
+          $draft = "false"
+          $prerelease = "false"
+
+          if ('${{ github.event_name }}' -eq 'workflow_dispatch' -and '${{ inputs.version }}' -ne '') {
+            $tag = '${{ inputs.version }}'.Trim()
+            if (-not $tag.StartsWith('v')) {
+              $tag = "v$tag"
+            }
+            $title = "Stellar-Notes $tag"
+            if ('${{ inputs.draft }}' -eq 'true') { $draft = "true" }
+            if ('${{ inputs.prerelease }}' -eq 'true') { $prerelease = "true" }
+          } elseif ('${{ github.event_name }}' -eq 'release') {
+            $tag = '${{ github.event.release.tag_name }}'
+            $title = '${{ github.event.release.name }}'
+            if (-not $title) { $title = "Stellar-Notes $tag" }
+            if ('${{ github.event.release.draft }}' -eq 'true') { $draft = "true" }
+            if ('${{ github.event.release.prerelease }}' -eq 'true') { $prerelease = "true" }
+          } else {
+            $tag = '${{ github.ref_name }}'
+            $title = "Stellar-Notes $tag"
+          }
+
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "tag=$tag"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "title=$title"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "draft=$draft"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "prerelease=$prerelease"
+
       - name: Publish to GitHub Releases
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.version != '')
         uses: softprops/action-gh-release@v2
         with:
-          name: Stellar-Notes ${{ github.ref_name }}
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.title }}
+          draft: ${{ steps.meta.outputs.draft == 'true' }}
+          prerelease: ${{ steps.meta.outputs.prerelease == 'true' }}
           files: dist/stellar_notes.exe
           generate_release_notes: true
